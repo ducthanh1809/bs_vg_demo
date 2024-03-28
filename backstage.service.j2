@@ -1,0 +1,16 @@
+[Unit]
+Description=backstage
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/backstage/demo
+Environment="GITHUB_TOKEN={{GITHUB_TOKEN}}"
+Environment="GITHUB_DEVELOPMENT_CLIENT_ID={{clientid}}"
+Environment="GITHUB_DEVELOPMENT_CLIENT_SECRET={{clienttoken}}"
+ExecStart=yarn dev
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
